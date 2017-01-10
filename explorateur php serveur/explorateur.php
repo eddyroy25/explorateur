@@ -9,36 +9,52 @@
 
 <?php 
 
-$var = $_GET['var'];
-
-if(strlen($var)==0){
-
-$var='.';
-
-}
-
 $adresse = "/home/eddyr/";
 $scan = scandir($adresse);
-foreach ($scan as $folder) {
+
+if (isset($_GET['dossier'])) {
+		$adresse = $adresse.$_GET['dossier'];
+	}
+	
+$dirs = scandir($adresse);
+
+
+	
+foreach ($dirs as $folder) {
 	
 	if (is_file("/home/eddyr/$folder")) {
 		
-	echo "<img src='images/file.png'><a href='../home/eddyr/$folder/'>$folder</a><br>";
-	
-	}
-	
-	else {
+		if ($folder == ".."){
 		
-		echo "<img src='images/folder.png'><a href='../home/eddyr/$folder/'>$folder</a><br>";
-	}
+		echo "<img src='images/folder.png'><a href='explorateur.php'><?=$folder?></a><br>";
+					
+		// echo "<img src='images/file.png'><a href='/home/eddyr/$folder/'>$folder</a><br>";
 	
+	
+		}
+		else {
+			
+				if (isset($_GET['dossier'])) {
+					
+					echo '<img src="images/folder.png"><a href="explorateur.php?dossier=<?='.$_GET["dossier"].'?><?=$folder?>/"><?=$folder?></a><br>';
+			
+			// echo "<img src='images/folder.png'><a href='/home/eddyr/$folder/'>$folder</a><br>";
+				}
+	
+				else {
+					
+				echo "<img src='images/file.png'><a href='explorateur.php?dossier=<?=$folder?>/'><?=$folder?></a><br>";
+				
+				}
+	
+		}
+	}
+		
+	else {
+		echo "<img src='images/folder.png'><a href='explorateur.php?dossier=<?=$folder?>/'>$folder</a><br>";
+	}
+
 }
-
-
 ?>
-
-
-</body>
+	</body>
 </html>
-
-
