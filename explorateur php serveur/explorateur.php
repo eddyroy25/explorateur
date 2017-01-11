@@ -78,7 +78,7 @@ foreach ($dirs as $folder) {
 		
 		else {
 	//sinon on reste sur l'url actuelle (si c'est un dossier)
-		echo "<img src='images/folder.png'><a href='explorateur.php?dossier=".$_GET['dossier'].$folder."/'>$folder</a><br>";
+		echo "<img src='images/folder.png'><a href='explorateur.php?dossier=$folder/'>$folder</a><br>";
 		}
 	}
 
