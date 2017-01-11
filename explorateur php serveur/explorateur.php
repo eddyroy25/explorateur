@@ -40,7 +40,7 @@ foreach ($dirs as $folder) {
 		if (isset($_GET['dossier'])) {
 // si la variable de la méthode get est définie (si elle transmet une adresse)
 
-			echo "<div class='row'><div class='col-lg-12'><img src='images/file.png'><a href='explorateur.php?dossier='".$_GET['dossier']."$folder/>$folder</a></div></div>";
+			echo "<div class='row'><div class='col-lg-12'><img src='images/file.png'><a href='explorateur.php?dossier='".$_GET['dossier'].$folder."/>$folder</a></div></div>";
 	// on affiche 	imagedossier + lien vers le dossier et on ajoute le nom du dossier dans l'url
 		}
 
@@ -77,12 +77,19 @@ foreach ($dirs as $folder) {
 		}
 		
 		else {
-	//sinon on reste sur l'url actuelle (si c'est un dossier)
-		echo "<img src='images/folder.png'><a href='explorateur.php?dossier=$folder/'>$folder</a><br>";
-		}
-	}
-
-}
+                
+                if (isset($_GET['dossier'])){
+                    echo "<img src='images/folder.png'><a href='explorateur.php?dossier=".$_GET['dossier'].$folder."/'>$folder</a><br>";
+                    }
+                
+                else {
+                    
+                echo "<a href='explorateur.php?dossier=$folder/'><img src='images/folder.png'>$folder</a><br>";
+                }
+            }
+        
+      }
+  }
 ?>
 			</div>
 			
