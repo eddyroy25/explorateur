@@ -11,7 +11,7 @@
 		
 	</head>
 	
-	<body>
+	<body id="explorateur" >
 	
 		<div class="container">
 		
@@ -30,27 +30,40 @@ $dirs = scandir($adresse);
 // scandir récupère en tableau toutes les données
 
 	
+	
+	
 foreach ($dirs as $folder) {
 //pour chaque contenu d'adresse defini comme la variable $folder (valeur d'une ligne du tableau)	
 	if (!is_dir($adresse.$folder)) {
 // si l'adresse visée n'est pas un dossier (donc est un fichier	)	
+		$target = $adresse.$folder;
 		
+		// $cartable = "/home/eddyr/maquette_bootstrap/images/cartable.png";
+		// $open = fopen($target, "r");
+		
+			
+// header("Content-disposition: attachment; filename="basename(.$target.)")";
+// header("Content-type: image/png");
+// readfile($target);
+
 		
 ///sinon		
 		if (isset($_GET['dossier'])) {
 // si la variable de la méthode get est définie (si elle transmet une adresse)
 
-			echo "<div class='row'><div class='col-lg-12'><img src='images/file.png'><a href='explorateur.php?dossier='".$_GET['dossier'].$folder."/>$folder</a></div></div>";
-	// on affiche 	imagedossier + lien vers le dossier et on ajoute le nom du dossier dans l'url
-		}
-
-
-
-		else {
-	//sinon il envoie sur le dossier ecrit dans l'adresse			
-			echo "<div class='row'><div class='col-lg-12'><img src='images/file.png'><a href='explorateur.php?dossier=$folder/'>$folder</a></div></div>";
 			
+			echo "<div id='content' class='row'><div class='col-lg-12'><img src='images/file.png'><a class='link' href=http://eddyr.marmier.codeur.online/".$_GET['dossier'].$folder.">$folder</a></div></div>";
+			echo "<button class='btn btn-warning col-lg-2'><a class='link' download='$folder' href=http://eddyr.marmier.codeur.online/".$_GET['dossier'].$folder.">Télécharger</a></button><br><br>";
+	// on affiche 	image fichier + lien vers le dossier et on ajoute le nom du dossier dans l'url
 		}
+
+
+
+		// else {
+	//sinon il envoie sur le dossier ecrit dans l'adresse			
+			// echo "<div class='row'><div class='col-lg-12'><img src='images/file.png'><a download='$target' href='explorateur.php?dossier=$folder/'>$folder</a></div></div>";
+			
+		// }
 
 	
 	}
@@ -90,8 +103,49 @@ foreach ($dirs as $folder) {
         
       }
   }
+  
+
+    // header('Content-Disposition: attachment; filename='.$target.'');
+ // $open = fopen(dirname(__FILE__) . $target , "r" );
+ // fclose($open);
+    // readfile($_GET['dossier'].$folder);
+  
+  
+  
 ?>
-			</div>
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js">
+</script>
+<script>
+$(function(){
+	$(document).ready(function() {
+		
+		$(".link").on('click', function(e){
+		e.preventDefault();
+		console.log("coucou");
+			var $x = $(this);
+			var adresse = $x.attr("href");
+			var splitadresse = adresse.split('?')[1];
+		$.ajax({
+			type : "GET",
+			data: splitadresse,
+			success : function(data) {
+				$("#ajax").html(data);
+			},
+
+		});
+		});
+	});
+});
+	
+
+</script>
+
+		</div>
+		
+		<div id="ajax" class="col-lg-6">
+
+		</div>
 			
 	</body>
 	
