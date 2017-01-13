@@ -3,8 +3,13 @@ body {
 	
 }
 
-
-body img{
+body img.icone {
 	height: 30px;
 }
+
+body div#ajax img {
+	
+	height: 100%;
+}
+
 
