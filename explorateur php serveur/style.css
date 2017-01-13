@@ -7,6 +7,14 @@ body img.icone {
 	height: 30px;
 }
 
+p.titre {
+	font-size: 32px;
+	color: white;
+	background-color: #5015c6;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
 body div#ajax img {
 	
 	height: 100%;

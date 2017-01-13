@@ -56,8 +56,8 @@ foreach ($dirs as $folder) {
 // si la variable de la méthode get est définie (si elle transmet une adresse)
 
 			
-			echo "<div id='content' class='row'><div class='col-lg-12'><img class=icone src='images/file.png'><a class='link' href=http://eddyr.marmier.codeur.online/".$_GET['dossier'].$folder.">$folder</a></div></div>";
-			echo "<button class='btn btn-warning col-lg-2'><a download='$folder' href=http://eddyr.marmier.codeur.online/".$_GET['dossier'].$folder.">Télécharger</a></button><br><br>";
+			echo "<div id='main'><div class='col-lg-3 col-md-3 col-sm-4 col-xs-4'><img class=icone src='images/file.png'><a class='link' href=http://eddyr.marmier.codeur.online/".$_GET['dossier'].$folder.">$folder</a></div></div>";
+			echo "<button class='btn-md btn-info col-lg-1'><a download='$folder' href=http://eddyr.marmier.codeur.online/".$_GET['dossier'].$folder.">Télécharger</a></button><br><br>";
 	// on affiche 	image fichier + lien vers le dossier et on ajoute le nom du dossier dans l'url
 		}
 
@@ -78,30 +78,30 @@ foreach ($dirs as $folder) {
 // si la ligne est égale à ..	
 
 			if (isset($_GET['dossier'])){
-			echo "<div class='row'><div class='col-lg-12'><img class=icone src='images/retour.png'><a href='explorateur.php?dossier=".$_GET['dossier'].$folder."/'>$folder</a></div></div>";
+			echo "<div id='main'><div class='col-lg-3 col-md-3 col-sm-4 col-xs-4'><img class=icone src='images/retour.png'><a href='explorateur.php?dossier=".$_GET['dossier'].$folder."/'>$folder</a></div></div>";
 			}
 			
 			else{
-				echo "<div class='row'><div class='col-lg-12'><img class=icone src='images/retour.png'><a href='explorateur.php'>$folder</a></div></div>";
+				echo "<div id='main'><div class='col-lg-3 col-md-3 col-sm-4 col-xs-4'><img class=icone src='images/retour.png'><a href='explorateur.php'>$folder</a></div></div>";
 			}
 			}   
 		
 		else if ($folder == "."){
 // si la ligne est égale à ..	
 
-			echo "<img class=icone src='images/home.png'><a href='explorateur.php'>$folder</a><br>";
+			echo "<div id='main'><div class='col-lg-3 col-md-3 col-sm-4 col-xs-4'><img class=icone src='images/home.png'><a href='explorateur.php'>$folder</a><br></div></div>";
 	// on affiche : imagedossier + lien 				
 		}
 		
 		else {
                 
                 if (isset($_GET['dossier'])){
-                    echo "<img class=icone src='images/folder.png'><a href='explorateur.php?dossier=".$_GET['dossier'].$folder."/'>$folder</a><br>";
+                    echo "<div id='main' ><div class='col-lg-3 col-md-3 col-sm-4 col-xs-4'><img class=icone src='images/folder.png'><a href='explorateur.php?dossier=".$_GET['dossier'].$folder."/'>$folder</a><br></div></div>";
                     }
                 
                 else {
                     
-                echo "<a href='explorateur.php?dossier=$folder/'><img src='images/folder.png'>$folder</a><br>";
+                echo "<div id='main'><div class='col-lg-3 col-md-3 col-sm-4 col-xs-4'><a href='explorateur.php?dossier=$folder/'><img src='images/folder.png'>$folder</a><br></div></div>";
                 }
             }
         
@@ -148,7 +148,7 @@ $(function(){
 
 		</div>
 		
-		<div id="ajax" class="col-lg-6">
+		<div id="ajax" class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-8">
 
 		</div>
 			
