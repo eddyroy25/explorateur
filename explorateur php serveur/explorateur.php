@@ -5,11 +5,15 @@
 	
 		<meta charset="utf-8"/>
 		
+		<title>Explorateur de fichiers</title>
+		
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 		
 		<link href="style.css" rel="stylesheet"/>
 		
 	</head>
+	
+	<p class="titre">Explorateur de fichiers</p>
 	
 	<body id="explorateur" >
 	
